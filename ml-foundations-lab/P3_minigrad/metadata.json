@@ -1,0 +1,26 @@
+{
+  "id": "P3_minigrad",
+  "title": "MiniGrad — From-Scratch NumPy Optimization Library",
+  "tier": "foundational",
+  "tags": ["Optimization", "NumPy", "From Scratch", "Loss Landscape", "Convergence Analysis"],
+  "tech_stack": ["NumPy", "SciPy", "Matplotlib"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "optimizers_implemented": 6,
+    "loss_surfaces": 5,
+    "default_iters": 3000,
+    "default_tol": 1e-6,
+    "ols_parity_rel_err": 2.47e-12,
+    "best_optimizer_on_ill_conditioned": "adagrad (27 iters)",
+    "adam_ill_conditioned_iters": 922
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Loss-surface generators: Rosenbrock, Rastrigin, ill-conditioned quadratic (κ=2500), Beale, linear regression",
+    "model": "Six optimizers (Batch GD, Momentum, NAG, Adagrad, RMSProp, Adam) + closed-form OLS; full history tracking",
+    "visualize": "2-D contour trajectories, 3-D loss landscape, side-by-side comparison, N×M optimizer grid",
+    "train": "argparse CLI: --optimizers, --surfaces, --lr, --iters, --tol, --metrics-json, --plot, --scipy-parity"
+  },
+  "entry_point": "python train.py [--optimizers adam rmsprop] [--surfaces rosenbrock beale] --metrics-json results.json --plot assets/comparison.png",
+  "repo_path": "ml-foundations-lab/P3_minigrad"
+}

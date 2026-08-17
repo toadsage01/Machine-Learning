@@ -1,0 +1,12 @@
+# P3_minigrad artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/*.png
+!assets/hero.png
+!assets/.gitkeep
