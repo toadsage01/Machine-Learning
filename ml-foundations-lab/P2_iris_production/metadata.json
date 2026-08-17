@@ -1,0 +1,29 @@
+{
+  "id": "P2_iris_production",
+  "title": "Iris Production — Full ML Pipeline with SHAP + ONNX + FastAPI",
+  "tier": "foundational",
+  "tags": ["Classification", "Pipeline", "Explainability", "MLOps", "Serving"],
+  "tech_stack": ["scikit-learn", "LightGBM", "SHAP", "ONNX", "ONNXRuntime", "FastAPI", "Uvicorn", "Pydantic"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "candidates_evaluated": 4,
+    "best_model": "svm",
+    "best_accuracy": 0.9667,
+    "best_f1_macro": 0.9666,
+    "cv_folds": 5,
+    "test_size": 0.2,
+    "onnx_export_size_kb": 2.0,
+    "inference_latency_ms": 0.5,
+    "endpoints": ["/health", "/predict", "/predict/batch"]
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Iris loader (sklearn or CSV) + stratified train/test split + FeatureSchema",
+    "model": "Pipeline builder (ColumnTransformer+StandardScaler→classifier) for LogReg/RF/SVM/LightGBM; SHAP hook; ONNX export via skl2onnx",
+    "train": "argparse CLI: trains all 4 candidates, picks best by accuracy, exports to ONNX",
+    "app": "FastAPI server loading ONNX, exposes /health, /predict, /predict/batch"
+  },
+  "entry_point": "python train.py [--models logreg random_forest svm lightgbm] --out models/best.onnx",
+  "serving": "uvicorn app:app --port 8000",
+  "repo_path": "ml-foundations-lab/P2_iris_production"
+}

@@ -1,0 +1,19 @@
+# P2_iris_production artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py ...`)
+models/*.onnx
+models/*.joblib
+models/*.json
+models/*.png
+!models/.gitkeep
+
+# Local evaluation outputs
+assets/eval_*.png
+!assets/hero.png
+!assets/.gitkeep
