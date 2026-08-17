@@ -1,0 +1,28 @@
+{
+  "id": "P4_titanic_twoships",
+  "title": "Titanic Two-Ships — Unified ETL + Boosting + Calibration + Fairness",
+  "tier": "foundational",
+  "tags": ["Classification", "ETL", "Boosting", "Calibration", "Fairness"],
+  "tech_stack": ["scikit-learn", "LightGBM", "CatBoost", "XGBoost", "Pandas", "Matplotlib"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "datasets_unified": 2,
+    "models_evaluated": 3,
+    "best_model": "catboost",
+    "best_accuracy_classic": 0.7921,
+    "best_auc_classic": 0.8438,
+    "calibration_methods": ["isotonic", "sigmoid"],
+    "fairness_features": ["sex", "pclass", "is_child", "is_elderly", "alone"],
+    "classic_target_rate": 0.386,
+    "spaceship_target_rate_synthetic": 0.616
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Unified ETL for classic Titanic (Stanford mirror) + Spaceship Titanic (Kaggle; synthetic fallback for offline use). Normalizes both into a 14-feature unified schema.",
+    "model": "Three boosters (LightGBM, CatBoost, XGBoost) with sklearn Pipeline (imputer + OneHot + StandardScaler). Isotonic/Sigmoid calibration via CalibratedClassifierCV. Fairness slicing across sex/pclass/age/alone.",
+    "train": "argparse CLI: --datasets, --models, --calibration, --metrics-json, --calibration-plot, --fairness-plot, --roc-plot",
+    "tests": "12 tests: loaders, training, calibration math (perfect predictions → Brier=0), fairness slice math (verified on tiny hand-crafted example), CLI smoke test"
+  },
+  "entry_point": "python train.py [--datasets classic spaceship] [--models catboost xgboost lightgbm] [--calibration isotonic] --metrics-json metrics.json",
+  "repo_path": "ml-foundations-lab/P4_titanic_twoships"
+}

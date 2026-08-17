@@ -1,0 +1,27 @@
+# P4_titanic_twoships artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py`)
+models/*.joblib
+models/*.json
+models/*.txt
+!models/.gitkeep
+
+# Downloaded raw datasets (regenerable via `python dataset.py --download`)
+data/*.csv
+data/*.csv.gz
+data/*.zip
+data/_cache/
+!data/.gitkeep
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/calibration_*.png
+assets/fairness_*.png
+assets/roc_*.png
+!assets/hero.png
+!assets/.gitkeep
