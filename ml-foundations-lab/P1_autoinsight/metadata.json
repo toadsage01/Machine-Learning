@@ -1,0 +1,24 @@
+{
+  "id": "P1_autoinsight",
+  "title": "AutoInsight",
+  "tier": "foundational",
+  "tags": ["EDA", "Automated Reporting", "Python", "Drift Detection"],
+  "tech_stack": ["Pandas", "Polars", "Jinja2", "Plotly", "Matplotlib", "scipy"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "n_columns_profiled_per_run": "unbounded",
+    "max_dataset_rows_for_missingness_render": 5000,
+    "psi_thresholds": {"no_drift": 0.10, "moderate_drift": 0.25},
+    "shapiro_normality_max_n": 5000,
+    "typical_report_size_kb": 250
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "ETL & type inference (Dataset value object, clean_dataframe, DataGovLoader)",
+    "model": "Profiling engine (ColumnProfile, DatasetProfile, DriftReport, PSI/KS drift)",
+    "report": "HTML report builder (Jinja2 + Plotly + Matplotlib)",
+    "train": "argparse CLI wrapper"
+  },
+  "entry_point": "python train.py --data <csv> [--reference <ref>] --out <report.html>",
+  "repo_path": "ml-foundations-lab/P1_autoinsight"
+}

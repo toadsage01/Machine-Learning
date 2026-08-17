@@ -1,0 +1,23 @@
+# P1_autoinsight dependencies (pinned)
+# Python >= 3.10 required (uses PEP 604 type unions & match statements).
+#
+# Core data
+pandas==2.2.3
+numpy==1.26.4
+scipy==1.14.1
+
+# Templating & HTML rendering
+Jinja2==3.1.6
+markupsafe==2.1.5
+
+# Interactive figures embedded in HTML
+plotly==5.24.1
+
+# Static figures (missingness matrix, correlation heatmap, drift bars)
+matplotlib==3.9.2
+
+# HTTP fetching (data.gov.in / direct URL downloads)
+requests==2.32.3
+
+# Optional: live-reload during dev (commented for production pin)
+# watchdog==4.0.1

@@ -1,0 +1,12 @@
+# P1_autoinsight artifacts
+*.html
+!templates/*.html
+!assets/*.html
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+sample_data/*.csv
+!sample_data/.gitkeep
+.ipynb_checkpoints/
