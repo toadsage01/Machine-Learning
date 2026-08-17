@@ -19,7 +19,7 @@ Machine-Learning/
 │   ├── P2_iris_production/        # ✅ Production ML pipeline (sklearn + SHAP + ONNX + FastAPI)
 │   ├── P3_minigrad/               # ✅ NumPy optimization library (GD, Momentum, RMSProp, Adam)
 │   ├── P4_titanic_twoships/      # ✅ Feature engineering across Titanic + Spaceship Titanic
-│   └── P5_housing_geospatial/    # ⏳ OSMnx geospatial housing + Quantile Regression
+│   └── P5_housing_geospatial/    # ✅ OSMnx geospatial housing + Quantile Regression
 │
 ├── ml-applied-lab/                # Module B — applied ML systems
 │   ├── P6_leaf_disease/           # ⏳ ResNet50 vs EfficientNetV2 vs ViT + Grad-CAM

@@ -1,0 +1,28 @@
+# P5_housing_geospatial artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained models (regenerable via `python train.py`)
+models/*.joblib
+models/*.txt
+models/*.json
+!models/.gitkeep
+
+# Cached OSM downloads (can be huge — multi-MB graph files)
+data/_osm_cache/
+data/*.geojson
+data/*.gpkg
+data/*.graphml
+data/*.csv
+!data/.gitkeep
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/heatmap_*.png
+assets/proximity_*.png
+assets/intervals_*.png
+!assets/hero.png
+!assets/.gitkeep

@@ -1,0 +1,29 @@
+{
+  "id": "P5_housing_geospatial",
+  "title": "Housing Geospatial — Quantile Regression with OSMnx Enrichment",
+  "tier": "foundational",
+  "tags": ["Regression", "Quantile", "Geospatial", "OSMnx", "Confidence Intervals"],
+  "tech_stack": ["scikit-learn", "LightGBM", "OSMnx", "geopy", "Matplotlib", "Pandas"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "metros_supported": 3,
+    "quantiles": [0.10, 0.50, 0.90],
+    "models_evaluated": 2,
+    "best_model": "gradient_boosting",
+    "best_mean_pinball": 13.654,
+    "best_coverage_p10_p90": 0.677,
+    "best_median_mae": 41.32,
+    "default_n_samples": 1500,
+    "proximity_pois_kinds": 7
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Indian metro housing ETL with 7 OSM POI proximity features (metro/hospital/school/park/mall/bus_stop/commercial_hub). Synthetic Mumbai generator with realistic price gradients. OSMnx enrichment with synthetic fallback when network unavailable.",
+    "model": "Quantile regression (LightGBM + GradientBoostingRegressor) producing p10/p50/p90 predictions. Pinball loss + 80% interval coverage + crossing-rate diagnostics. Non-crossing post-fix in QuantileModel.predict.",
+    "visualize": "Spatial price heatmap (log-scale), OSM proximity small-multiples, quantile prediction intervals, coverage calibration bar chart.",
+    "train": "argparse CLI: --metro, --models, --use-osm, --n-samples, --metrics-json, --heatmap, --proximity-plot, --intervals-plot, --calibration-plot",
+    "tests": "14 tests: pinball math (4 hand-crafted cases), haversine vs geopy, schema verification, model training shape, perfect-interval coverage=1.0, zero-coverage case, viz rendering, CLI smoke"
+  },
+  "entry_point": "python train.py [--metro mumbai|delhi|bangalore] [--models lightgbm gradient_boosting] [--use-osm] --metrics-json metrics.json",
+  "repo_path": "ml-foundations-lab/P5_housing_geospatial"
+}

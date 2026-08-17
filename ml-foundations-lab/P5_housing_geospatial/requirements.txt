@@ -1,0 +1,22 @@
+# P5_housing_geospatial dependencies (pinned)
+# Python >= 3.10
+#
+# Core data
+pandas==2.2.3
+numpy==2.1.3
+scipy==1.14.1
+requests==2.32.3
+
+# Geospatial
+osmnx==2.1.1
+geopy==2.4.1
+shapely==2.1.2
+contextily==1.7.1
+folium==0.20.0
+
+# Modelling (quantile regression)
+scikit-learn==1.5.2
+lightgbm==4.5.0
+
+# Plotting (uses shared/plot_style.mplstyle via the repo-root package)
+matplotlib==3.9.2
