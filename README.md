@@ -33,6 +33,8 @@ Machine-Learning/
 │   ├── P11_face_recognition_realtime/ # ✅ RetinaFace + ArcFace + FAISS pipeline
 │   ├── P12_recsys_two_tower/    # ✅ Two-Tower retrieval + LightGBM ranking
 │   └── P13_automl_pipeline/    # ✅ Optuna + MLflow AutoML pipeline
+├── production-lab/                # Module E — production ML systems
+│   └── P15_experiment_kit/        # ✅ A/B testing (Frequentist, Bayesian, CUPED, Sequential)
 ├── generative-lab/                # Module D — generative models
 │   └── P14_indic_lm_from_scratch/ # ✅ NanoGPT-style decoder-only LM (~25-50M params)
 ├── nn-from-scratch/               # P10 (legacy path — redirects to dl-advanced-lab/)

@@ -1,0 +1,19 @@
+# P15_experiment_kit artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Generated figures
+assets/experiment_*.png
+assets/posterior_*.png
+assets/sequential_*.png
+!assets/hero.png
+!assets/.gitkeep
+
+# Data
+data/*.csv
+data/_cache/
+!data/.gitkeep

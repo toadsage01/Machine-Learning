@@ -1,0 +1,25 @@
+{
+  "id": "P15_experiment_kit",
+  "title": "Experiment Kit — Frequentist + CUPED + Sequential + Bayesian A/B Testing",
+  "tier": "applied",
+  "tags": ["A/B Testing", "CUPED", "Sequential Testing", "Bayesian", "Statistics", "Experimentation"],
+  "tech_stack": ["scipy", "numpy", "scikit-learn", "pandas", "matplotlib"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "engines": 4,
+    "frequentist_tests": ["welch_ttest", "chi_square", "mann_whitney"],
+    "cuped_var_reduction": "1.70% (synthetic)",
+    "sequential_method": "mSPRT (O'Brien-Fleming alpha-spending)",
+    "bayesian_method": "Beta-Binomial conjugate",
+    "tests_passed": 13
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Experiment ETL with pre-period covariate generation for CUPED. Synthetic A/B/C variant logs with configurable true lift, covariate correlation, and conversion rate. User-level assignment tracking.",
+    "model": "Four statistical engines: (1) Frequentist (Welch t-test, Chi-Square, Mann-Whitney U); (2) CUPED (covariate regression variance reduction: θ=Cov(Y,X)/Var(X)); (3) Sequential (mSPRT with O'Brien-Fleming alpha-spending for peeking protection); (4) Bayesian (Beta-Binomial conjugate updating with Monte Carlo P(superiority) + ROPE).",
+    "train": "argparse CLI: --csv, --n-users, --n-variants, --true-lift, --total-peeks, --bayes-samples, --metrics-json, --plot.",
+    "tests": "13 tests: CUPED variance reduction (σ²_adj < σ²_raw), CUPED θ sign, CUPED preserves mean, mSPRT no false positive under null, mSPRT conservative boundary, Bayesian posterior means match data, P(superiority) → 1.0 for large effect, Beta-Binomial conjugate correctness, Welch p-value ∈ [0,1] + detects large effect, Chi-Square p-value range, ExperimentKit run_all, CLI smoke."
+  },
+  "entry_point": "python train.py [--csv data.csv] [--n-variants 3] --metrics-json metrics.json",
+  "repo_path": "production-lab/P15_experiment_kit"
+}
