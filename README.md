@@ -24,7 +24,7 @@ Machine-Learning/
 ├── ml-applied-lab/                # Module B — applied ML systems
 │   ├── P6_leaf_disease/           # ✅ ResNet50 vs EfficientNetV2 vs ViT + Grad-CAM
 │   ├── P7_hinglish_sentiment/      # ✅ TF-IDF vs IndicBERT on code-mixed Hinglish
-│   ├── P8_churn_survival/         # ⏳ Churn + Kaplan-Meier + Cox PH + Uplift modeling
+│   ├── P8_churn_survival/         # ✅ Churn + Kaplan-Meier + Cox PH + Uplift modeling
 │   ├── P9_nse_forecasting/        # ⏳ LightGBM vs Chronos / TimesFM zero-shot
 │   └── P15_experiment_kit/        # ⏳ A/B testing (Frequentist, Bayesian, CUPED, Sequential)
 │

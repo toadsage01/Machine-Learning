@@ -1,0 +1,29 @@
+{
+  "id": "P8_churn_survival",
+  "title": "Churn Survival — Dual Classifier + Survival + Uplift Retention Policy",
+  "tier": "applied",
+  "tags": ["Churn", "Survival Analysis", "Uplift Modeling", "Cox PH", "Kaplan-Meier", "Retention"],
+  "tech_stack": ["scikit-learn", "lifelines", "scipy", "Pandas", "Matplotlib"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "models_evaluated": 4,
+    "classifiers": ["logreg", "random_forest"],
+    "survival_models": ["kaplan_meier", "cox_ph"],
+    "synthetic_churn_rate": 0.40,
+    "best_classifier": "random_forest",
+    "best_classifier_auc": 0.9949,
+    "best_brier_score": 0.0150,
+    "cox_c_index_synthetic": 0.9733,
+    "optimal_targeted_pct": 52.5,
+    "total_roi_synthetic": 5549.55
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Subscription churn ETL with (duration, event) survival indicators. Synthetic generator with Cox proportional hazards + Weibull baseline (λ=0.0012, ρ=1.4) producing ~40% observed churn rate. Real-world Telco dataset download (IBM Watson sample) with synthetic fallback.",
+    "model": "Dual-modeling: (1) Standard classifiers (LogReg, RandomForest) with ColumnTransformer preprocessing; (2) Survival analysis via Kaplan-Meier (population curve) + Cox PH (covariate-adjusted individual risk). C-index computed via lifelines.concordance_index. Uplift via two-model approach (P_churn|control − P_churn|treatment). Expected-value policy ranks customers by uplift × LTV − offer_cost and finds the optimal targeting threshold via cumulative ROI maximization.",
+    "train": "argparse CLI: --csv, --use-real, --n-samples, --seed, --test-size, --skip-classifier/survival/uplift, --offer-cost, --metrics-json, --survival-plot, --uplift-plot. Outputs ROC-AUC/Brier for classifiers, C-index for Cox PH, and optimal ROI + targeting threshold for uplift.",
+    "tests": "17 tests: dataset schema, churn-rate sanity, stratified split churn-rate preservation, classifier metrics sanity, KM non-increasing survival + bounded [0,1] + starts at 1, Cox C-index in [0,1] + recovers ground-truth coefficient directions, C-index perfect/random ranking, uplift basic math, expected-value optimal threshold + negative-EV skip, CLI smoke test."
+  },
+  "entry_point": "python train.py [--use-real | --csv data.csv] [--skip-classifier | --skip-survival | --skip-uplift] --metrics-json metrics.json",
+  "repo_path": "ml-applied-lab/P8_churn_survival"
+}

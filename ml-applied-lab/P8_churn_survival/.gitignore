@@ -1,0 +1,27 @@
+# P8_churn_survival artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py`)
+models/*.joblib
+models/*.pkl
+models/*.json
+!models/.gitkeep
+
+# Downloaded real-world datasets (regenerable via `python dataset.py --download`)
+data/*.csv
+data/*.zip
+data/*.tar.gz
+data/_cache/
+!data/.gitkeep
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/survival_*.png
+assets/uplift_*.png
+assets/roc_*.png
+!assets/hero.png
+!assets/.gitkeep
