@@ -1,0 +1,27 @@
+{
+  "id": "P7_hinglish_sentiment",
+  "title": "Hinglish Sentiment — TF-IDF Baseline vs IndicBERT with ONNX Export",
+  "tier": "applied",
+  "tags": ["NLP", "Sentiment", "Code-Mixing", "Hinglish", "IndicBERT", "ONNX"],
+  "tech_stack": ["scikit-learn", "transformers", "datasets", "PyTorch", "ONNX", "ONNXRuntime", "Pandas"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "models_evaluated": 2,
+    "labels": ["negative", "neutral", "positive"],
+    "tfidf_baseline_accuracy_synthetic": 0.91,
+    "indicbert_accuracy_synthetic_1epoch": 0.44,
+    "onnx_runtime_parity_max_diff": 1.79e-07,
+    "default_max_length": 128,
+    "default_model_id": "bert-base-multilingual-cased",
+    "gated_indicbert_id": "ai4bharat/indic-bert"
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Hinglish code-mixed ETL: script detection (Roman/Devanagari/Mixed), text normalization (URL/mention stripping + Hinglish romanization lookup + Devanagari preservation), synthetic review generator with 3-class sentiment lexicon, HFDatasetWrapper for tokenized batching, stratified train/val/test splits.",
+    "model": "Two model families via one API: TF-IDF + LogisticRegression baseline (word n-grams 1-2, sublinear TF) vs fine-tuned IndicBERT (bert-base-multilingual-cased fallback; ai4bharat/indic-bert gated). ClassificationMetrics value object with confusion matrix + ROC-AUC + log-loss. ONNX export via torch.onnx with dynamic batch axis.",
+    "train": "argparse CLI: --models, --csv, --n-per-class, --epochs, --batch-size, --lr, --weight-decay, --warmup-steps, --max-length, --model-id, --onnx-out, --metrics-json, --confusion-plot.",
+    "tests": "18 tests (16 by default + 2 opt-in BERT): script detection (4 cases), text normalization (6 cases), synthetic dataset + splits, HF Dataset wrapper tokenization, TF-IDF training + metrics sanity, IndicBERT fine-tuning + ONNX runtime parity (max proba diff <1e-3), CLI smoke."
+  },
+  "entry_point": "python train.py [--models tfidf_logreg indicbert] [--csv data.csv] [--epochs 3] --onnx-out models/indicbert.onnx",
+  "repo_path": "ml-applied-lab/P7_hinglish_sentiment"
+}

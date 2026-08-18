@@ -1,0 +1,34 @@
+# P7_hinglish_sentiment artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py`)
+models/*.onnx
+models/*.bin
+models/*.safetensors
+models/*.pt
+models/*.pth
+models/*.joblib
+models/*.json
+models/*/
+!models/.gitkeep
+
+# HuggingFace cache (regenerable — downloaded on first run)
+data/hf_cache/
+data/*.csv
+data/*.tsv
+data/*.json
+data/*.zip
+data/*.tar.gz
+!data/.gitkeep
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/confusion_*.png
+assets/loss_curves_*.png
+assets/tokenization_*.png
+!assets/hero.png
+!assets/.gitkeep

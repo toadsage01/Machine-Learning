@@ -1,0 +1,29 @@
+# P7_hinglish_sentiment dependencies (pinned)
+# Python >= 3.10
+#
+# Core numerics + data
+numpy==2.1.3
+scipy==1.14.1
+pandas==2.2.3
+scikit-learn==1.5.2
+requests==2.32.3
+
+# Deep learning — CPU-only torch build.
+torch==2.13.0
+torchvision==0.28.0
+
+# HuggingFace NLP stack
+transformers==5.15.0
+datasets==5.0.1
+tokenizers==0.22.2
+sentencepiece==0.2.2
+safetensors==0.8.0
+accelerate==1.9.0   # required by Trainer for PyTorch device setup
+
+# ONNX export & runtime
+onnx==1.22.0
+onnxruntime==1.29.0
+onnxscript==0.7.1   # required by torch 2.x ONNX exporter
+
+# Plotting (uses shared/plot_style.mplstyle via the repo-root package)
+matplotlib==3.9.2
