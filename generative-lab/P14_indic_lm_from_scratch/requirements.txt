@@ -1,0 +1,15 @@
+# P14_indic_lm_from_scratch dependencies (pinned)
+# Python >= 3.10
+#
+# Core numerics
+numpy==2.1.3
+scipy==1.14.1
+
+# Deep learning
+torch==2.13.0
+
+# Tokenizer
+sentencepiece==0.2.2
+
+# Plotting (uses shared/plot_style.mplstyle via the repo-root package)
+matplotlib==3.9.2

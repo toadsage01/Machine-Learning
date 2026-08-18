@@ -1,0 +1,24 @@
+{
+  "id": "P14_indic_lm_from_scratch",
+  "title": "Indic LM From Scratch — Decoder-only Transformer with RoPE + SwiGLU + KV-Cache",
+  "tier": "applied",
+  "tags": ["NLP", "Language Model", "Transformer", "RoPE", "SwiGLU", "KV-Cache", "Hindi"],
+  "tech_stack": ["PyTorch", "SentencePiece", "NumPy"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "architecture": "LLaMA-style decoder-only",
+    "features": ["RoPE", "RMSNorm", "SwiGLU", "KV-Cache", "Top-k/Top-p sampling"],
+    "default_params": "95K (configurable up to 25-50M)",
+    "tokenizer": "SentencePiece BPE",
+    "tests_passed": 10
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Hindi/Hinglish text builder with synthetic generator (Devanagari + Roman mixing). SentencePiece BPE tokenizer trained on Indic text (character_coverage=0.98). PyTorch TextDataset with sequence chunking + DataLoader.",
+    "model": "Decoder-only Transformer (LLaMA-style): RoPE rotary position embeddings (precomputed cos/sin tables), RMSNorm (faster than LayerNorm), SwiGLU gated MLP (SiLU gate), Multi-Head causal self-attention with KV-cache, weight tying. Temperature/Top-k/Top-p sampling for generation.",
+    "train": "argparse CLI: AdamW + cosine LR schedule with warmup, cross-entropy loss, validation perplexity, KV-cached autoregressive generation demo, checkpoint export.",
+    "tests": "10 tests: RoPE shapes (cos/sin), KV-cache output parity (identical tokens), loss reduction (training decreases loss), perplexity = exp(loss), perplexity cap, tokenizer encode/decode roundtrip, model output shape, CLI smoke."
+  },
+  "entry_point": "python train.py [--text-file corpus.txt] [--epochs N] --checkpoint-out models/lm.pth",
+  "repo_path": "generative-lab/P14_indic_lm_from_scratch"
+}

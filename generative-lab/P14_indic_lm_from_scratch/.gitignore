@@ -1,0 +1,27 @@
+# P14_indic_lm_from_scratch artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model checkpoints
+models/*.pth
+models/*.pt
+models/*.ckpt
+!models/.gitkeep
+
+# Tokenizer models
+data/*.model
+data/*.vocab
+data/*.txt
+data/*.bpe
+data/_cache/
+!data/.gitkeep
+
+# Generated figures
+assets/training_*.png
+assets/generation_*.png
+!assets/hero.png
+!assets/.gitkeep

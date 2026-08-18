@@ -33,11 +33,13 @@ Machine-Learning/
 │   ├── P11_face_recognition_realtime/ # ✅ RetinaFace + ArcFace + FAISS pipeline
 │   ├── P12_recsys_two_tower/    # ✅ Two-Tower retrieval + LightGBM ranking
 │   └── P13_automl_pipeline/    # ✅ Optuna + MLflow AutoML pipeline
+├── generative-lab/                # Module D — generative models
+│   └── P14_indic_lm_from_scratch/ # ✅ NanoGPT-style decoder-only LM (~25-50M params)
 ├── nn-from-scratch/               # P10 (legacy path — redirects to dl-advanced-lab/)
 ├── face-recognition-realtime/     # P11 (legacy path — redirects to dl-advanced-lab/)
 ├── recsys-two-tower/             # P12 (legacy path — redirects to dl-advanced-lab/)
 ├── automl-pipeline/               # P13 (legacy path — redirects to dl-advanced-lab/)
-├── indic-lm-from-scratch/         # P14 — NanoGPT-style decoder-only LM (~25–50M params)
+├── indic-lm-from-scratch/         # P14 (legacy path — redirects to generative-lab/)
 └── diffusion-from-scratch/        # P16 — DDPM + DDIM + classifier-free guidance
 ```
 
