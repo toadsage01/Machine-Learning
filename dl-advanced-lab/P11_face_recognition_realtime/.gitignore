@@ -1,0 +1,27 @@
+# P11_face_recognition_realtime artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py`)
+models/*.onnx
+models/*.pth
+models/*.bin
+models/*.index
+!models/.gitkeep
+
+# Downloaded face datasets (regenerable)
+data/faces/
+data/*.zip
+data/_cache/
+!data/.gitkeep
+
+# Generated figures
+assets/roc_*.png
+assets/retrieval_*.png
+assets/embeddings_*.png
+!assets/hero.png
+!assets/.gitkeep

@@ -1,0 +1,25 @@
+{
+  "id": "P11_face_recognition_realtime",
+  "title": "Face Recognition Realtime — RetinaFace + ArcFace + FAISS + Anti-Spoofing",
+  "tier": "applied",
+  "tags": ["Face Recognition", "ArcFace", "FAISS", "Anti-Spoofing", "ONNX", "Real-time"],
+  "tech_stack": ["OpenCV", "PyTorch", "FAISS", "ONNX", "ONNXRuntime", "NumPy"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "embedding_dim": 512,
+    "detector_backends": ["haar", "retinaface", "mediapipe"],
+    "anti_spoofing_methods": ["texture_LBP", "frequency_FFT", "color_HSV"],
+    "faiss_index": "IndexFlatIP",
+    "onnx_parity_max_diff": "3.73e-08",
+    "tests_passed": 13
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Face ETL with 5-point landmark alignment (Umeyama similarity transform), synthetic face generator with identity-specific features (face shape, skin tone, eye/hair colour, facial hair), preprocess_for_arcface normalization to [-1,1].",
+    "model": "HaarFaceDetector (OpenCV cascade), ArcFaceEmbedder (lightweight ResNet backbone → 512-D L2-normalized embeddings), AntiSpoofingChecker (texture LBP + frequency FFT + color HSV heuristics), FaceVectorIndex (FAISS IndexFlatIP cosine similarity), FaceRecognitionPipeline (detect→align→embed→search end-to-end).",
+    "train": "argparse CLI: --n-identities, --n-images-per-identity, --detector, --spoof-threshold, --onnx-out, --metrics-json, --roc-plot, --retrieval-plot. Evaluates Top-1/Top-5 retrieval, verification ROC curve, anti-spoofing benchmark, and ONNX parity.",
+    "tests": "13 tests: landmark transforms (identity/translation/rotation), face alignment shape, synthetic face determinism + balance, 512-D embedding L2 norm = 1.0, batch embedding shape, FAISS recall@1 = 1.0 for registered identities, FAISS index size, anti-spoofing score in [0,1], ONNX export + runtime parity (< 1e-3), CLI smoke test."
+  },
+  "entry_point": "python train.py [--n-identities N] [--onnx-out models/arcface.onnx] --metrics-json metrics.json",
+  "repo_path": "dl-advanced-lab/P11_face_recognition_realtime"
+}
