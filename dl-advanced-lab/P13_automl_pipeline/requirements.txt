@@ -1,0 +1,22 @@
+# P13_automl_pipeline dependencies (pinned)
+# Python >= 3.10
+#
+# Core numerics + data
+numpy==2.1.3
+scipy==1.14.1
+pandas==2.2.3
+scikit-learn==1.5.2
+
+# Boosting models
+lightgbm==4.5.0
+xgboost==2.1.3
+catboost==1.2.8
+
+# HPO
+optuna==4.9.0
+
+# Experiment tracking
+mlflow==3.15.1
+
+# Plotting (uses shared/plot_style.mplstyle via the repo-root package)
+matplotlib==3.9.2

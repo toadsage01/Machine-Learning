@@ -1,0 +1,26 @@
+{
+  "id": "P13_automl_pipeline",
+  "title": "AutoML Pipeline — Schema Inference + Optuna HPO + MLflow Tracking",
+  "tier": "applied",
+  "tags": ["AutoML", "Optuna", "MLflow", "Feature Engineering", "HPO", "Pipeline"],
+  "tech_stack": ["scikit-learn", "LightGBM", "XGBoost", "CatBoost", "Optuna", "MLflow"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "models_searched": 3,
+    "hpo_trials_default": 10,
+    "cv_folds": 3,
+    "schema_types_detected": ["numeric", "categorical", "datetime", "binary", "id", "text"],
+    "feature_engineering": ["imputation", "one_hot_encoding", "standard_scaler", "polynomial_features", "datetime_decomposition"],
+    "mlflow_integration": true,
+    "tests_passed": 15
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Automated schema inference engine (ColumnType detection: numeric/categorical/datetime/binary/text/id) + task type inference (classification ≤20 unique vs regression) + synthetic generators for both tasks with mixed-type features + missingness injection.",
+    "model": "AutoFeatureTransformer (imputation + OneHot + StandardScaler + PolynomialFeatures + datetime decomposition). OptunaHPO (TPE sampler across LightGBM/XGBoost/CatBoost, 6+ hyperparameters per model). MLflowTracker (logs params + metrics + artifacts per trial + best run). run_automl_pipeline orchestrates the full flow.",
+    "train": "argparse CLI: --csv, --target, --task, --n-samples, --n-features, --n-trials, --cv-folds, --use-mlflow, --model-out, --metrics-json.",
+    "tests": "15 tests: schema detection (5 types), task type inference (classification/regression), feature transformer output shape + polynomial expansion, Optuna best_score = max(all_scores), trial count matches n_trials, MLflow experiment + run logging, model factory (LightGBM/XGBoost), CLI smoke."
+  },
+  "entry_point": "python train.py [--csv data.csv] [--target col] [--task classification|regression] [--n-trials 20] --use-mlflow --model-out models/best.joblib",
+  "repo_path": "dl-advanced-lab/P13_automl_pipeline"
+}

@@ -1,0 +1,29 @@
+# P13_automl_pipeline artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained models
+models/*.joblib
+models/*.pkl
+models/*.json
+models/*.txt
+!models/.gitkeep
+
+# MLflow tracking
+mlruns/
+data/mlruns/
+
+# Downloaded datasets
+data/*.csv
+data/_cache/
+!data/.gitkeep
+
+# Generated figures
+assets/hpo_*.png
+assets/schema_*.png
+!assets/hero.png
+!assets/.gitkeep
