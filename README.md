@@ -28,7 +28,9 @@ Machine-Learning/
 │   ├── P9_nse_forecasting/        # ✅ LightGBM vs Chronos / TimesFM zero-shot
 │   └── P15_experiment_kit/        # ⏳ A/B testing (Frequentist, Bayesian, CUPED, Sequential)
 │
-├── nn-from-scratch/               # P10 — Reverse-mode autograd engine in NumPy
+├── dl-advanced-lab/               # Module C — advanced deep learning
+│   └── P10_nn_from_scratch/      # ✅ Reverse-mode autograd engine in NumPy
+├── nn-from-scratch/               # P10 (legacy path — redirects to dl-advanced-lab/)
 ├── face-recognition-realtime/     # P11 — RetinaFace + ArcFace + FAISS pipeline
 ├── recsys-two-tower/             # P12 — Two-Tower retrieval + LightGBM ranking
 ├── automl-pipeline/               # P13 — Optuna + MLflow AutoML pipeline

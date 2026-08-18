@@ -1,0 +1,27 @@
+# P10_nn_from_scratch artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py`)
+models/*.pth
+models/*.pt
+models/*.npz
+!models/.gitkeep
+
+# Downloaded MNIST / CIFAR-10 (regenerable via `python dataset.py --download`)
+data/MNIST/
+data/cifar-10-*
+data/*.tar.gz
+data/*.gz
+data/_cache/
+!data/.gitkeep
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/training_*.png
+assets/grad_check_*.png
+!assets/hero.png
+!assets/.gitkeep

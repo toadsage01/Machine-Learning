@@ -1,0 +1,27 @@
+{
+  "id": "P10_nn_from_scratch",
+  "title": "NN From Scratch — Reverse-Mode Autograd Engine in NumPy",
+  "tier": "applied",
+  "tags": ["Deep Learning", "Autograd", "NumPy", "From Scratch", "PyTorch Parity"],
+  "tech_stack": ["NumPy", "PyTorch", "torchvision", "Matplotlib"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "ops_verified_against_pytorch": 13,
+    "max_grad_diff_vs_pytorch": "1.78e-15",
+    "precision_threshold": "1e-5",
+    "layers_implemented": ["Linear", "Conv2D", "MaxPool2D", "Sequential", "ReLU", "Sigmoid", "Tanh", "Flatten"],
+    "optimizers": ["SGD", "Adam"],
+    "losses": ["cross_entropy", "mse"],
+    "tests_passed": 31
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "autograd": "N-dimensional Tensor class with reverse-mode autodiff via DAG topological sort + closure-based backward functions. 13 ops: add, sub, mul, div, pow, neg, matmul (1D + 2D + batched), sum, mean, transpose, reshape, getitem, relu, sigmoid, tanh, exp, log, cross_entropy, mse. Broadcasting-aware gradient accumulation via unbroadcast helper.",
+    "nn": "PyTorch-like Module base class with auto-registration of sub-modules + parameters. Linear (Kaiming init), Conv2D (im2col reference impl), MaxPool2D (mask-based gradient routing), Sequential, ReLU/Sigmoid/Tanh/Flatten. SGD with momentum, Adam with bias correction.",
+    "dataset": "MNIST/CIFAR-10 ETL with synthetic generators (class-dependent digit/colour-shape patterns) for offline use. Normalization to MNIST/CIFAR canonical stats. Batch generator with shuffling.",
+    "train": "argparse CLI: --dataset, --model (mlp/cnn), --use-real, --epochs, --batch-size, --lr, --optimizer (sgd/adam), --grad-check-only, --metrics-json, --training-plot. Runs PyTorch gradient parity check (9 ops) before training; verifies max diff < 1e-5.",
+    "tests": "31 tests: 13 scalar/tensor ops vs PyTorch (atol=1e-5), 5 nonlinearities, 2 losses (loss value + grad), 2 broadcasting cases, unbroadcast helper, Linear/Conv2D/MaxPool2D vs PyTorch, Module.parameters() traversal, SGD + Adam loss reduction, 2 CLI smoke tests."
+  },
+  "entry_point": "python train.py [--dataset mnist|cifar10] [--model mlp|cnn] [--grad-check-only] --metrics-json metrics.json",
+  "repo_path": "dl-advanced-lab/P10_nn_from_scratch"
+}
