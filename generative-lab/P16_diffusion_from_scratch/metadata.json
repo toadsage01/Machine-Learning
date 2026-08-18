@@ -1,0 +1,25 @@
+{
+  "id": "P16_diffusion_from_scratch",
+  "title": "Diffusion From Scratch — DDPM + DDIM + Classifier-Free Guidance + FID",
+  "tier": "applied",
+  "tags": ["Diffusion", "DDPM", "DDIM", "UNet", "Classifier-Free Guidance", "FID", "Generative"],
+  "tech_stack": ["PyTorch", "torchvision", "NumPy", "SciPy", "Matplotlib"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "components": 6,
+    "noise_schedules": ["linear", "cosine"],
+    "samplers": ["DDPM (stochastic)", "DDIM (deterministic)"],
+    "unet_features": ["Sinusoidal time embeddings", "ResNet blocks", "Self-attention", "Class embeddings + null-token dropout"],
+    "cfg_scales_tested": [0, 1, 2, 4],
+    "tests_passed": 11
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Image dataset builder for MNIST/CIFAR-10/synthetic geometric shapes (10 classes: circle, square, triangle, star, cross, hexagon, diamond, heart, arrow, ellipse). Normalized to [-1, 1]. PyTorch DataLoader.",
+    "model": "Complete diffusion engine: (a) NoiseScheduler (linear & cosine schedules with precomputed alpha bars); (b) UNet Denoiser (sinusoidal time embeddings, ResNet blocks, multi-head self-attention, class embeddings with null-token dropout); (c) DDPM Sampler (T-step stochastic); (d) DDIM Sampler (accelerated deterministic); (e) Classifier-Free Guidance (CFG scale w); (f) FID Calculator (Frechet distance via matrix sqrt).",
+    "train": "argparse CLI: trains DDPM with MSE noise loss, generates image grids via DDPM+DDIM, evaluates FID, saves checkpoint. Supports --dataset, --timesteps, --schedule, --base-ch, --generate, --checkpoint-out.",
+    "tests": "11 tests: forward noising alpha-bar limits (x_T ≈ N(0,I)), alpha-bars monotonic decrease (linear + cosine), DDIM vs DDPM output shape parity, CFG w=1 → guided=conditional, CFG w=0 → guided=unconditional, UNet input-output shape match, UNet works without class labels, FID same=0, FID different>0, CLI smoke."
+  },
+  "entry_point": "python train.py [--dataset synthetic|mnist|cifar10] [--generate] --checkpoint-out models/ddpm.pth",
+  "repo_path": "generative-lab/P16_diffusion_from_scratch"
+}

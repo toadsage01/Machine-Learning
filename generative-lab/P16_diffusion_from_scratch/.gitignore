@@ -1,0 +1,25 @@
+# P16_diffusion_from_scratch artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model checkpoints
+models/*.pth
+models/*.pt
+!models/.gitkeep
+
+# Downloaded datasets
+data/MNIST/
+data/cifar-10-*
+data/_cache/
+!data/.gitkeep
+
+# Generated figures
+assets/samples_*.png
+assets/loss_*.png
+assets/fid_*.png
+!assets/hero.png
+!assets/.gitkeep

@@ -25,27 +25,30 @@ Machine-Learning/
 │   ├── P6_leaf_disease/           # ✅ ResNet50 vs EfficientNetV2 vs ViT + Grad-CAM
 │   ├── P7_hinglish_sentiment/      # ✅ TF-IDF vs IndicBERT on code-mixed Hinglish
 │   ├── P8_churn_survival/         # ✅ Churn + Kaplan-Meier + Cox PH + Uplift modeling
-│   ├── P9_nse_forecasting/        # ✅ LightGBM vs Chronos / TimesFM zero-shot
-│   └── P15_experiment_kit/        # ⏳ A/B testing (Frequentist, Bayesian, CUPED, Sequential)
+│   └── P9_nse_forecasting/        # ✅ LightGBM vs Chronos / TimesFM zero-shot
 │
 ├── dl-advanced-lab/               # Module C — advanced deep learning
 │   ├── P10_nn_from_scratch/      # ✅ Reverse-mode autograd engine in NumPy
 │   ├── P11_face_recognition_realtime/ # ✅ RetinaFace + ArcFace + FAISS pipeline
 │   ├── P12_recsys_two_tower/    # ✅ Two-Tower retrieval + LightGBM ranking
 │   └── P13_automl_pipeline/    # ✅ Optuna + MLflow AutoML pipeline
+│
 ├── production-lab/                # Module E — production ML systems
 │   └── P15_experiment_kit/        # ✅ A/B testing (Frequentist, Bayesian, CUPED, Sequential)
+│
 ├── generative-lab/                # Module D — generative models
-│   └── P14_indic_lm_from_scratch/ # ✅ NanoGPT-style decoder-only LM (~25-50M params)
+│   ├── P14_indic_lm_from_scratch/ # ✅ NanoGPT-style decoder-only LM (~25-50M params)
+│   └── P16_diffusion_from_scratch/ # ✅ DDPM + DDIM + classifier-free guidance + FID
+│
 ├── nn-from-scratch/               # P10 (legacy path — redirects to dl-advanced-lab/)
 ├── face-recognition-realtime/     # P11 (legacy path — redirects to dl-advanced-lab/)
 ├── recsys-two-tower/             # P12 (legacy path — redirects to dl-advanced-lab/)
 ├── automl-pipeline/               # P13 (legacy path — redirects to dl-advanced-lab/)
 ├── indic-lm-from-scratch/         # P14 (legacy path — redirects to generative-lab/)
-└── diffusion-from-scratch/        # P16 — DDPM + DDIM + classifier-free guidance
+└── diffusion-from-scratch/        # P16 (legacy path — redirects to generative-lab/)
 ```
 
-Legend: ✅ completed · ⏳ pending
+**🎉 ALL 16 PROJECTS COMPLETE (16/16 ✅)**
 
 ## Conventions
 
