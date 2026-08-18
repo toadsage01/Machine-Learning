@@ -1,0 +1,24 @@
+{
+  "id": "P12_recsys_two_tower",
+  "title": "RecSys Two-Tower — Retrieval + LightGBM Ranking with Recall@K / NDCG@K",
+  "tier": "applied",
+  "tags": ["Recommendation", "Two-Tower", "InfoNCE", "LightGBM", "FAISS", "Ranking"],
+  "tech_stack": ["PyTorch", "LightGBM", "FAISS", "scikit-learn", "Pandas"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "embedding_dim": 64,
+    "retrieval_loss": "InfoNCE (in-batch softmax)",
+    "ranking_model": "LightGBM LambdaMART",
+    "metrics_computed": ["Recall@1", "Recall@5", "Recall@10", "NDCG@5", "NDCG@10", "MRR", "HitRate@10"],
+    "tests_passed": 15
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Synthetic recommendation ETL with latent-factor user/item embeddings. Implicit (clicked) + explicit (rating 1-5) feedback. Temporal + leave-one-out splits. User/item metadata features.",
+    "model": "Two-Tower PyTorch retrieval (UserTower + ItemTower DNNs → 64-D L2-normalized embeddings). InfoNCE loss (in-batch softmax). FAISS IndexFlatIP for cosine search. LightGBM LambdaMART ranker on candidate-pair features (element-wise product + cosine sim + metadata).",
+    "train": "argparse CLI: --num-users, --num-items, --n-interactions, --embedding-dim, --epochs, --batch-size, --lr, --temperature, --k-candidates, --lgbm-n-estimators, --metrics-json, --metrics-plot. Trains two-tower → indexes items → evaluates retrieval → trains ranking → evaluates ranking.",
+    "tests": "15 tests: embedding L2 norm = 1.0 (both towers), InfoNCE perfect-match/orthogonal/non-negative, Recall@K non-decreasing monotonicity + perfect, NDCG@K bounded [0,1] + perfect, MRR bounded [0,1] + perfect, FAISS add+search correctness, LightGBM fit+predict sanity, temporal split integrity, CLI smoke."
+  },
+  "entry_point": "python train.py [--num-users N] [--num-items N] [--n-interactions N] --metrics-json metrics.json",
+  "repo_path": "dl-advanced-lab/P12_recsys_two_tower"
+}

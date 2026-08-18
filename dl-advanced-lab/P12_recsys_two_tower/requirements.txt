@@ -1,0 +1,25 @@
+# P12_recsys_two_tower dependencies (pinned)
+# Python >= 3.10
+#
+# Core numerics + data
+numpy==2.1.3
+scipy==1.14.1
+pandas==2.2.3
+scikit-learn==1.5.2
+
+# Deep learning (Two-Tower retrieval engine)
+torch==2.13.0
+
+# Boosting (ranking model)
+lightgbm==4.5.0
+
+# Vector search (item index)
+faiss-cpu==1.15.0
+
+# ONNX export
+onnx==1.22.0
+onnxruntime==1.29.0
+onnxscript==0.7.1
+
+# Plotting (uses shared/plot_style.mplstyle via the repo-root package)
+matplotlib==3.9.2

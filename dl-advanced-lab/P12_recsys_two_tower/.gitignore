@@ -1,0 +1,27 @@
+# P12_recsys_two_tower artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts
+models/*.pth
+models/*.onnx
+models/*.txt
+models/*.joblib
+!models/.gitkeep
+
+# Downloaded datasets
+data/*.csv
+data/*.parquet
+data/_cache/
+!data/.gitkeep
+
+# Generated figures
+assets/embedding_*.png
+assets/ranking_*.png
+assets/metrics_*.png
+!assets/hero.png
+!assets/.gitkeep

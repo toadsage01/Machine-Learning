@@ -30,10 +30,11 @@ Machine-Learning/
 │
 ├── dl-advanced-lab/               # Module C — advanced deep learning
 │   ├── P10_nn_from_scratch/      # ✅ Reverse-mode autograd engine in NumPy
-│   └── P11_face_recognition_realtime/ # ✅ RetinaFace + ArcFace + FAISS pipeline
+│   ├── P11_face_recognition_realtime/ # ✅ RetinaFace + ArcFace + FAISS pipeline
+│   └── P12_recsys_two_tower/    # ✅ Two-Tower retrieval + LightGBM ranking
 ├── nn-from-scratch/               # P10 (legacy path — redirects to dl-advanced-lab/)
 ├── face-recognition-realtime/     # P11 (legacy path — redirects to dl-advanced-lab/)
-├── recsys-two-tower/             # P12 — Two-Tower retrieval + LightGBM ranking
+├── recsys-two-tower/             # P12 (legacy path — redirects to dl-advanced-lab/)
 ├── automl-pipeline/               # P13 — Optuna + MLflow AutoML pipeline
 ├── indic-lm-from-scratch/         # P14 — NanoGPT-style decoder-only LM (~25–50M params)
 └── diffusion-from-scratch/        # P16 — DDPM + DDIM + classifier-free guidance
