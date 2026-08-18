@@ -1,0 +1,28 @@
+# P9_nse_forecasting artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py`)
+models/*.joblib
+models/*.txt
+models/*.json
+!models/.gitkeep
+
+# Downloaded OHLCV data (regenerable via `python dataset.py --download`)
+data/*.csv
+data/*.parquet
+data/_cache/
+!data/.gitkeep
+
+# HF cache for Chronos / TimesFM weights (regenerable on first run)
+data/hf_cache/
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/walk_forward_*.png
+assets/forecast_*.png
+!assets/hero.png
+!assets/.gitkeep

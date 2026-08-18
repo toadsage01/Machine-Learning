@@ -1,0 +1,28 @@
+{
+  "id": "P9_nse_forecasting",
+  "title": "NSE Forecasting — Naive / LightGBM / Chronos Zero-Shot Walk-Forward Benchmark",
+  "tier": "applied",
+  "tags": ["Time-Series", "Forecasting", "Walk-Forward", "NSE", "Chronos", "LightGBM"],
+  "tech_stack": ["yfinance", "statsmodels", "lightgbm", "scikit-learn", "PyTorch", "Pandas"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "models_evaluated": 4,
+    "forecasters": ["naive", "lightgbm", "chronos", "transformer_fallback"],
+    "default_train_window_days": 252,
+    "default_test_window_days": 21,
+    "default_step_days": 21,
+    "technical_indicators_count": 40,
+    "stationarity_method": "Augmented Dickey-Fuller",
+    "metrics_computed": ["MAE", "RMSE", "MAPE", "Directional Accuracy", "Pinball p10/p50/p90", "Coverage"],
+    "best_model_synthetic_gbm": "naive (random walk optimum)"
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "NSE OHLCV ETL via yfinance (with synthetic GBM fallback). 40 technical indicators: lag (5), rolling mean/std/min/max (4), daily/log returns, EMA, RSI. ADF stationarity check (returns = stationary, prices = non-stationary). Walk-forward split generator with strict temporal integrity (train precedes test, no row overlap).",
+    "model": "Four forecasters via one API (fit/predict): Naive persistence, LightGBM (3 quantile regressors for p10/p50/p90 intervals), Amazon Chronos (T5 zero-shot via HuggingFace), and a lightweight 2-layer transformer fallback for offline environments. Walk-forward evaluation with MAE/RMSE/MAPE/Directional Accuracy/Pinball/Coverage metrics.",
+    "train": "argparse CLI: --symbol, --models, --use-yfinance, --train-window, --test-window, --step, --lgbm-n-estimators, --transformer-epochs, --metrics-json, --forecast-plot.",
+    "tests": "18 tests: synthetic OHLCV schema, lag features backward (no lookahead leakage — verified per-row), rolling windows right-aligned, target_next_close forward shift, ADF on constant/random walk/returns, walk-forward train-precedes-test + no overlap + window sizes, MAE/RMSE/MAPE/DirAcc/Pinball math (hand-verified), naive/LightGBM/walk-forward sanity, CLI smoke."
+  },
+  "entry_point": "python train.py [--symbol ^NSEI] [--use-yfinance] [--models naive lightgbm transformer_fallback] --metrics-json metrics.json",
+  "repo_path": "ml-applied-lab/P9_nse_forecasting"
+}

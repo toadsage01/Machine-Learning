@@ -1,0 +1,24 @@
+# P9_nse_forecasting dependencies (pinned)
+# Python >= 3.10
+#
+# Core numerics + data
+numpy==2.1.3
+scipy==1.14.1
+pandas==2.2.3
+scikit-learn==1.5.2
+requests==2.32.3
+
+# Time-series finance
+yfinance==1.6.0
+statsmodels==0.14.5
+
+# Boosting model
+lightgbm==4.5.0
+
+# HuggingFace transformers (for Chronos/TimesFM zero-shot — optional;
+# the project runs without these via the lightweight transformer fallback)
+transformers==5.15.0
+torch==2.13.0
+
+# Plotting (uses shared/plot_style.mplstyle via the repo-root package)
+matplotlib==3.9.2
