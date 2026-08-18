@@ -1,0 +1,28 @@
+{
+  "id": "P6_leaf_disease",
+  "title": "Leaf Disease — Comparative Vision Architectures + Grad-CAM + ONNX/TFLite",
+  "tier": "applied",
+  "tags": ["Computer Vision", "Transfer Learning", "Grad-CAM", "ONNX", "TFLite", "Agriculture"],
+  "tech_stack": ["PyTorch", "torchvision", "Albumentations", "ONNX", "ONNXRuntime", "ai-edge-litert", "Pillow"],
+  "hero_image": "assets/hero.png",
+  "metrics": {
+    "backbones_evaluated": 3,
+    "resnet50_params_M": 23.5,
+    "efficientnet_v2_params_M": 20.2,
+    "vit_b_16_params_M": 85.8,
+    "image_size": 224,
+    "num_classes": 10,
+    "augmentation_pipeline": "Albumentations 2.0",
+    "export_formats": ["ONNX", "TFLite"],
+    "gradcam_variants": ["vanilla", "Grad-CAM++"]
+  },
+  "date_completed": "2026-08-18",
+  "modules": {
+    "dataset": "Plant Village downloader + synthetic-image fallback (procedural leaf generator with class-specific disease patterns) + PyTorch Dataset + Albumentations augmentations (train: RandomResizedCrop + flips + brightness/contrast + hue/sat + rotate; val/test: Resize + CenterCrop + Normalize) + stratified train/val/test splits.",
+    "model": "Three backbones (ResNet50 / EfficientNetV2-S / ViT-B/16) loaded via torchvision's pretrained weights with fresh classification heads. Grad-CAM++ implementation with hooks on the final conv/attention layer, supporting all 3 backbones via dynamic layer path resolution. ONNX export with dynamic batch axis + onnxruntime inference parity check. TFLite export via onnx2tf (optional).",
+    "train": "argparse CLI: --backbone, --data-dir, --epochs, --batch-size, --lr, --mixed-precision, --cosine-annealing, --no-pretrained, --onnx-out, --tflite-out, --gradcam-out, --metrics-json.",
+    "tests": "9 tests (8 passing by default + 1 opt-in CLI smoke): synthetic dataset shape verification, dataloader tensor shapes, stratified split class proportions, all 3 backbones forward pass + param count, ONNX export + runtime parity vs PyTorch (>= 75% label agreement, < 1e-3 max proba diff), Grad-CAM heatmap dimensions + normalization for all 3 backbones, Grad-CAM class_idx=None argmax behavior."
+  },
+  "entry_point": "python train.py [--backbone resnet50|efficientnet_v2|vit_b_16] [--mixed-precision] [--cosine-annealing] --onnx-out models/leaf.onnx",
+  "repo_path": "ml-applied-lab/P6_leaf_disease"
+}

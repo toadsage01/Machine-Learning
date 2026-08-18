@@ -1,0 +1,31 @@
+# P6_leaf_disease artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+
+# Trained model artifacts (regenerable via `python train.py`)
+models/*.onnx
+models/*.tflite
+models/*.pth
+models/*.pt
+models/*.joblib
+models/*.json
+!models/.gitkeep
+
+# Downloaded Plant Village dataset (huge — multiple GB)
+data/plantvillage/
+data/*.zip
+data/*.tar.gz
+data/*.tar
+data/_cache/
+!data/.gitkeep
+
+# Generated figures (regenerable via `python train.py --plot ...`)
+assets/gradcam_*.png
+assets/confusion_*.png
+assets/training_*.png
+!assets/hero.png
+!assets/.gitkeep
